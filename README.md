@@ -1,6 +1,6 @@
 # frontend
 
-Aplicación Móvil para la gestión de pedidos para restaurante en Android Studio
+Proyecto Final Programacion Movil I
 
 ## Getting Started
 
