@@ -2,17 +2,36 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:path/path.dart';
 import 'package:projet_delivery/src/environment/environment.dart';
 import 'package:projet_delivery/src/models/user.dart';
 import 'package:projet_delivery/src/models/response_api.dart';
 import 'package:http/http.dart' as http;
-import 'package:path/path.dart';
 
 class UsersProvider extends GetConnect {
 
   String url = Environment.API_URL + 'api/users';
 
   User userSession = User.fromJson(GetStorage().read('user') ?? {});
+
+  Future<List<User>> findDeliveryMen() async {
+    Response response = await get(
+        '$url/findDeliveryMen',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    ); // ESPERAR HASTA QUE EL SERVIDOR NOS RETORNE LA RESPUESTA
+
+    if (response.statusCode == 401) {
+      Get.snackbar('Peticion denegada', 'Tu usuario no tiene permitido leer esta informacion');
+      return [];
+    }
+
+    List<User> users = User.fromJsonList(response.body);
+
+    return users;
+  }
 
   Future<Response> create(User user) async {
     Response response = await post(
