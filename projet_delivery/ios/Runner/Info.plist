@@ -11,8 +11,22 @@
     <key>NSMicrophoneUsageDescription</key>
     <string>Necesito Permisos Para Acceder Al Microfono Del Dispositivo</string>
 	<key>CFBundleDisplayName</key>
+	<string>Necesito Permisos Para Esta Accion</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Necesito Permisos Para Esta Accion</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Necesito Permisos Para Esta Accion</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Necesito Permisos Para Esta Accion.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Necesito Permisos Para Esta Accion.</string>
 	<string>Projet Delivery</string>
 	<key>CFBundleExecutable</key>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>tel</string>
+    </array>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>

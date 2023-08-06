@@ -52,4 +52,24 @@ class ProductsProvider extends GetConnect {
     return products;
   }
 
+  Future<List<Product>> findByNameAndCategory(String idCategory, String name) async {
+    Response response = await get(
+        '$url/findByNameAndCategory/$idCategory/$name',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    ); // ESPERAR HASTA QUE EL SERVIDOR NOS RETORNE LA RESPUESTA
+
+    if (response.statusCode == 401) {
+      Get.snackbar('Peticion denegada', 'Tu usuario no tiene permitido leer esta informacion');
+      return [];
+    }
+
+    List<Product> products = Product.fromJsonList(response.body);
+
+    return products;
+  }
+
+
 }
