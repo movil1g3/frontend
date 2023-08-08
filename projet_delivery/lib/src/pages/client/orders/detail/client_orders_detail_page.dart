@@ -16,7 +16,7 @@ class ClientOrdersDetailPage extends StatelessWidget {
       bottomNavigationBar: Container(
         color: Color.fromRGBO(245, 245, 245, 1),
         height: con.order.status == 'EN CAMINO'
-            ? MediaQuery.of(context).size.height * 0.4
+            ? MediaQuery.of(context).size.height * 0.43
             : MediaQuery.of(context).size.height * 0.43,
         // padding: EdgeInsets.only(top: 5),
         child: Column(
@@ -152,6 +152,9 @@ class ClientOrdersDetailPage extends StatelessWidget {
               ),
               con.order.status == 'EN CAMINO'
                 ? _buttonGoToOrderMap()
+                : Container(),
+              con.order.status == 'ENTREGADO'
+              ? _buttonSendCalification()
                 : Container()
             ],
           ),
@@ -163,15 +166,34 @@ class ClientOrdersDetailPage extends StatelessWidget {
 
   Widget _buttonGoToOrderMap() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 51),
       child: ElevatedButton(
           onPressed: () => con.goToOrderMap(),
           style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(15),
-              primary: Colors.redAccent
+              padding: EdgeInsets.all(14),
+              backgroundColor: Colors.redAccent
           ),
           child: Text(
             'RASTREAR PEDIDO',
+            style: TextStyle(
+                color: Colors.white
+            ),
+          )
+      ),
+    );
+  }
+
+  Widget _buttonSendCalification() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 59),
+      child: ElevatedButton(
+          onPressed: () => con.test(),
+          style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.all(15),
+              backgroundColor: Colors.lightBlueAccent
+          ),
+          child: Text(
+            'Calificar Pedido',
             style: TextStyle(
                 color: Colors.white
             ),

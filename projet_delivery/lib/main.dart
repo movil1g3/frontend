@@ -5,11 +5,14 @@ import 'package:projet_delivery/src/models/user.dart';
 import 'package:projet_delivery/src/pages/Home/home_page.dart';
 import 'package:projet_delivery/src/pages/client/address/create/client_address_create_page.dart';
 import 'package:projet_delivery/src/pages/client/address/list/client_address_list_page.dart';
+import 'package:projet_delivery/src/pages/client/calificate/client_calificate_Page.dart';
 import 'package:projet_delivery/src/pages/client/home/client_home_controller.dart';
 import 'package:projet_delivery/src/pages/client/home/client_home_page.dart';
 import 'package:projet_delivery/src/pages/client/orders/create/client_orders_create_page.dart';
 import 'package:projet_delivery/src/pages/client/orders/detail/client_orders_detail_page.dart';
+import 'package:projet_delivery/src/pages/client/orders/list/client_orders_list_page.dart';
 import 'package:projet_delivery/src/pages/client/orders/map/client_orders_map_page.dart';
+import 'package:projet_delivery/src/pages/client/payments/buy/client_payments_buy_page.dart';
 import 'package:projet_delivery/src/pages/client/payments/create/client_payments_create_page.dart';
 import 'package:projet_delivery/src/pages/client/products/list/client_products_list_page.dart';
 import 'package:projet_delivery/src/pages/client/profile/info/client_profile_info_page.dart';
@@ -72,6 +75,8 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: '/client/profile/update', page: () => ClientProfileUpdatePage()),
         GetPage(name: '/client/orders/create', page: () => ClientOrdersCreatePage()),
         GetPage(name: '/client/orders/detail', page: () => ClientOrdersDetailPage()),
+        GetPage(name: '/client/orders/list', page: () => ClientOrdersListPage()),
+        GetPage(name: '/client/calificate', page: () => OrderRatingPage()),
         GetPage(name: '/client/orders/map', page: () => ClientOrdersMapPage()),
         GetPage(name: '/client/address/create', page: () => ClientAddressCreatePage()),
         GetPage(name: '/client/address/list', page: () => ClientAddressListPage()),

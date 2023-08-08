@@ -25,6 +25,9 @@ class ClientOrdersDetailController extends GetxController {
       'order': order.toJson()
     });
   }
+  void test() {
+    Get.toNamed('/client/calificate');
+  }
 
   void getTotal() {
     total.value = 0.0;
