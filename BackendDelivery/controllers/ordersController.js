@@ -108,7 +108,7 @@ module.exports = {
             return res.status(201).json({
                 success: true,
                 message: 'La orden se ha creado correctamente',
-                data: `${id}` // EL ID DE LA NUEVA CATEGORIA
+                data: `${id}` // EL ID DE LA NUEVA ORDEN
             });
 
         });
