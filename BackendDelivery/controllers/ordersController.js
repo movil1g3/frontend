@@ -128,7 +128,7 @@ module.exports = {
             }
 
             User.findById(order.id_delivery, (err, user) => {
-                
+                console.log('id delivery', order.id_delivery);
                 if (user !== undefined && user !== null) {
 
                     console.log('NOTIFICATION TOKEN', user.notification_token);
@@ -136,6 +136,19 @@ module.exports = {
                         title: 'PEDIDO ASIGNADO',
                         body: 'Te han asignado un pedido para entregar',
                         id_notification: '1'
+                    });
+                }
+
+            });
+
+            User.findById(order.id_client, (err, user) => {
+                if (user !== undefined && user !== null) {
+
+                    console.log('NOTIFICATION TOKEN', user.notification_token);
+                    PushNotificationsController.sendNotification(user.notification_token, {
+                        title: 'PEDIDO EN COCINA',
+                        body: 'Tu pedido esta en cocina',
+                        id_notification: '2'
                     });
                 }
 
@@ -163,6 +176,21 @@ module.exports = {
                 });
             }
 
+            User.findById(order.id_client, (err, user) => {
+                
+                if (user !== undefined && user !== null) {
+
+                    console.log('NOTIFICATION TOKEN', user.notification_token);
+                    PushNotificationsController.sendNotification(user.notification_token, {
+                        title: 'PEDIDO EN CAMINO',
+                        body: 'Tu Pedido esta en camino',
+                        id_notification: '3'
+                    });
+                }
+
+            });
+
+
             return res.status(201).json({
                 success: true,
                 message: 'La orden se ha actualizado correctamente',
@@ -183,6 +211,20 @@ module.exports = {
                     error: err
                 });
             }
+
+            User.findById(order.id_client, (err, user) => {
+                
+                if (user !== undefined && user !== null) {
+
+                    console.log('NOTIFICATION TOKEN', user.notification_token);
+                    PushNotificationsController.sendNotification(user.notification_token, {
+                        title: 'PEDIDO ENTREGAD',
+                        body: 'Tu Pedido ha sido entregado sastifactoriamente',
+                        id_notification: '4'
+                    });
+                }
+
+            });
 
             return res.status(201).json({
                 success: true,
