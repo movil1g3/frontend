@@ -33,34 +33,6 @@ class ClientPaymentsCreateController extends GetxController {
   GlobalKey<FormState> keyForm = GlobalKey();
 
 
-  bool isValidForm (String documentNumber) {
-    if (cardNumber.value.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Ingresa el numero de la tarjeta');
-      return false;
-    }
-    if (expireDate.value.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Ingresa la fecha de vencimiento de la tarjeta');
-      return false;
-    }
-    if (cardHolderName.value.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Ingresa el nombre del titular');
-      return false;
-    }
-    if (cvvCode.value.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Ingresa el codigo de seguridad');
-      return false;
-    }
-    if (idDocument.value.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Selecciona el tipo de documento');
-      return false;
-    }
-    if (documentNumber.isEmpty) {
-      Get.snackbar('Formulario no valido', 'Ingresa el numero del documento');
-      return false;
-    }
-
-    return true;
-  }
 
   void goToHome() async {
     Get.offNamedUntil('/client/home', (route) => false);
@@ -73,35 +45,70 @@ class ClientPaymentsCreateController extends GetxController {
     Address location = Address.fromJson(GetStorage().read('address') ?? {});
     List<Product> product = [];
 
+    if(isValidForm(cardNumber.value, cardHolderName.value, expireDate.value, cvvCode.value)){
+      if (GetStorage().read('shopping_bag') is List<Product>) {
+        product = GetStorage().read('shopping_bag');
+      } else {
+        product = Product.fromJsonList(GetStorage().read('shopping_bag'));
+      }
 
+      Order create = Order(
+          idClient: user.id,
+          idAddress: location.id,
+          lat: location.lat,
+          lng: location.lng,
+          products: product
+      );
 
-    if(GetStorage().read('shopping_bag') is List<Product>){
+      ProgressDialog progressDialog = ProgressDialog(context: context);
+      progressDialog.show(max: 100, msg: "Registrando Compra...");
 
-      product = GetStorage().read('shopping_bag');
-    }else{
-      product = Product.fromJsonList(GetStorage().read('shopping_bag'));
+      ResponseApi responseApi = await ordersProvider.create(create);
+
+      if (responseApi.success == true) {
+        progressDialog.close();
+        goToHome();
+      }
+      else{
+        Get.snackbar('INFORMACION', 'Compra Fallida');
+      }
+
+      print(cardNumber.value);
+      print(expireDate.value);
+      print(cvvCode.value);
+      print(cardHolderName.value);
+
+    }
+  }
+
+  bool isValidForm(
+      String getCardNumber,
+      String getNameHolder,
+      String getExpireDate,
+      String getCvv,
+      ) {
+
+    if (getCardNumber.isEmpty) {
+      Get.snackbar('INFORMACION', 'Numero De Tarjeta Requerido');
+      return false;
     }
 
-    Order create = Order(
-      idClient: user.id,
-      idAddress: location.id,
-      lat: location.lat,
-      lng: location.lng,
-      products: product
-    );
-
-    ProgressDialog progressDialog = ProgressDialog(context: context);
-    progressDialog.show(max: 100, msg: "Registrando Compra...");
-
-    ResponseApi responseApi = await ordersProvider.create(create);
-
-    if (responseApi.success == true) {
-      progressDialog.close();
-      goToHome();
+    if (getNameHolder.isEmpty) {
+      Get.snackbar('INFORMACION', 'Nombre Del Titular Requerido');
+      return false;
     }
 
-    print(create.toJson());
+    if (getExpireDate.isEmpty) {
+      Get.snackbar('INFORMACION', 'Fecha De Expiracion Requerido');
+      return false;
+    }
 
+    if (getCvv.isEmpty) {
+      Get.snackbar('INFORMACION', 'CVV Requerido');
+      return false;
+    }
+
+    return true;
   }
 
 
