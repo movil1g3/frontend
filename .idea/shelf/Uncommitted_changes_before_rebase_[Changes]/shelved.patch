@@ -1,0 +1,21 @@
+Index: projet_delivery/lib/src/environment/environment.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class Environment {\r\n\r\n  static const String API_URL  = \"http://192.168.8.214:3000/\";\r\n  static const String API_URL_OLD  = \"192.168.8.214:3000\";\r\n  static const String API_KEY_MAPS  = \"AIzaSyCdcDaI1uIkhFFrdjjuai_lHbILSX6Zgd0\";\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/projet_delivery/lib/src/environment/environment.dart b/projet_delivery/lib/src/environment/environment.dart
+--- a/projet_delivery/lib/src/environment/environment.dart	(revision f2a6f3a22fa90f643efef0142aa3c9dcf93b8f79)
++++ b/projet_delivery/lib/src/environment/environment.dart	(date 1691559486694)
+@@ -1,7 +1,7 @@
+ class Environment {
+ 
+-  static const String API_URL  = "http://192.168.8.214:3000/";
+-  static const String API_URL_OLD  = "192.168.8.214:3000";
++  static const String API_URL  = "http://192.168.0.4:3000/";
++  static const String API_URL_OLD  = "192.168.0.4:3000";
+   static const String API_KEY_MAPS  = "AIzaSyCdcDaI1uIkhFFrdjjuai_lHbILSX6Zgd0";
+ 
+ }
+\ No newline at end of file
