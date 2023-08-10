@@ -93,7 +93,7 @@ class ClientPaymentsCreatePage extends StatelessWidget {
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
       child: ElevatedButton(
-          onPressed: () => {},
+          onPressed: () => con.goToCreateOrder(context),
           style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 15)
           ),

@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 15)),
           child: const Text(
-            "LOGIN",
+            "SIGN IN",
             style: TextStyle(
               color: Colors.black
             ),
@@ -106,7 +106,7 @@ class LoginPage extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 35, bottom: 30),
       child: const Text(
-        "ENTER YOUR INFORMATION",
+        "INGRESA TU INFORMACION",
         style: TextStyle(
           color: Colors.black,
           fontSize: 16
@@ -119,7 +119,7 @@ class LoginPage extends StatelessWidget {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't Have Account?",
+        Text("No tienes una cuenta?",
           style: TextStyle(
             color: Colors.black,
             fontSize: 16
@@ -128,7 +128,7 @@ class LoginPage extends StatelessWidget {
         SizedBox(width: 10),
         GestureDetector(
           onTap: () => controller.goToRegisterPage(),
-          child: Text("Register Here!",
+          child: Text("Registrate Aqui!",
           style: TextStyle(
             color: Colors.deepOrange,
             fontWeight: FontWeight.bold,
@@ -166,7 +166,7 @@ class LoginPage extends StatelessWidget {
         margin: EdgeInsets.only(top: 20, bottom: 20),
         alignment: Alignment.center,
         child:  Image.asset(
-          'assets/img/delivery.png',
+          'assets/img/image-main.png',
           width: 130,
           height: 130,
         ),

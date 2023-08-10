@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:projet_delivery/src/models/address.dart';
+import 'package:projet_delivery/src/models/order.dart';
 import 'package:projet_delivery/src/models/user.dart';
 import 'package:projet_delivery/src/providers/address_provider.dart';
 import 'package:projet_delivery/src/providers/orders_provider.dart';
@@ -11,6 +12,7 @@ class ClientAddressListController extends GetxController {
   AddressProvider addressProvider = AddressProvider();
   OrdersProvider ordersProvider = OrdersProvider();
   User user = User.fromJson(GetStorage().read('user') ?? {});
+  Order order = Order.fromJson(GetStorage().read('order') ?? {});
 
   var radioValue = 0.obs;
 
@@ -20,7 +22,6 @@ class ClientAddressListController extends GetxController {
 
   Future<List<Address>> getAddress() async {
     address = await addressProvider.findByUser(user.id ?? '');
-    print('Address ${address}');
     Address a = Address.fromJson(GetStorage().read('address') ?? {}) ; // DIRECCION SELECCIONADA POR EL USUARIO
     int index = address.indexWhere((ad) => ad.id == a.id);
 
@@ -33,6 +34,12 @@ class ClientAddressListController extends GetxController {
 
   void createOrder() async {
     Get.toNamed('/client/payments/create');
+    // Address z = Address.fromJson(GetStorage().read('address') ?? {});
+    //
+    //
+    // print(z.lat);
+    // print(z.lng);
+    // print(z.id);
   }
 
   void handleRadioValueChange(int? value) {

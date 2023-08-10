@@ -34,7 +34,7 @@ class ClientHomePage extends StatelessWidget {
       itemCornerRadius: 24,
       curve: Curves.easeIn,
       selectedIndex: controller.indexTab.value,
-      onItemSelected: (index) => controller  .changeTab(index),
+      onItemSelected: (index) => controller.changeTab(index),
       items: [
         BottomNavyBarItem(
             icon: Icon(Icons.apps),

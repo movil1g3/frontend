@@ -40,7 +40,7 @@ class LoginController extends GetxController{
           goToRolesPage();
         }
         else { // SOLO UN ROL
-          goToClientHomePage();
+          goToRolesPage();
         }
       }
       else {
@@ -71,9 +71,5 @@ class LoginController extends GetxController{
 
   void goToRolesPage() {
     Get.offNamedUntil('/roles', (route) => false);
-  }
-
-  void goToClientHomePage() {
-    Get.offNamedUntil('/client/home', (route) => false);
   }
 }

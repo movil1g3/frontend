@@ -95,6 +95,7 @@ class UsersProvider extends GetConnect {
 
   Future<Stream> createWithImage(User user, File image) async {
     Uri uri = Uri.http(Environment.API_URL_OLD, '/api/users/createWithImage');
+    print('URL ---> $uri');
     final request = http.MultipartRequest('POST', uri);
     request.files.add(http.MultipartFile(
         'image',
@@ -120,6 +121,49 @@ class UsersProvider extends GetConnect {
     request.fields['user'] = json.encode(user);
     final response = await request.send();
     return response.stream.transform(utf8.decoder);
+  }
+
+  Future<ResponseApi> updateNotificationToken(String id, String token) async {
+    Response response = await put(
+        '$url/updateNotificationToken',
+        {
+          'id': id,
+          'token': token
+        },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    ); // ESPERAR HASTA QUE EL SERVIDOR NOS RETORNE LA RESPUESTA
+
+    if (response.body == null) {
+      Get.snackbar('Error', 'No se pudo actualizar la informacion');
+      return ResponseApi();
+    }
+
+    if (response.statusCode == 401) {
+      Get.snackbar('Error', 'No estas autorizado para realizar esta peticion');
+      return ResponseApi();
+    }
+
+    ResponseApi responseApi = ResponseApi.fromJson(response.body);
+
+    return responseApi;
+  }
+
+  Future<Response> findByCode(String code) async {
+    Response response = await get(
+        '$url/findByCode/$code',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    ); // ESPERAR HASTA QUE EL SERVIDOR NOS RETORNE LA RESPUESTA
+
+    if (response.statusCode == 404) {
+
+    }
+    return response;
   }
 
 }

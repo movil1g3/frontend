@@ -36,17 +36,17 @@ class FirebaseConfig {
     projectId: 'delivery--el-porvenir-steaks',
     authDomain: 'react-native-firebase-testing.firebaseapp.com',
     databaseURL: 'https://react-native-firebase-testing.firebaseio.com',
-    storageBucket: 'delivery--el-porvenir-steaks.appspot.com',
+    storageBucket: ' delivery--el-porvenir-steaks.appspot.com',
     measurementId: 'G-RF9GF9MQ1F',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBT00a5nTPN5aFMCg1ksVe095WiAElnXYM',
-    appId: '1:918189321058:android:7d0c6eab90728f378fda3b',
-    messagingSenderId: '918189321058',
-    projectId: 'udemy-delivery-mysql',
+    apiKey: 'AIzaSyAjiziILi1pUeaDvrMwRbNOeIGXWnmew1U',
+    appId: '1:543839448256:android:e90a4cb8fdb796e9391125',
+    messagingSenderId: '543839448256',
+    projectId: 'delivery--el-porvenir-steaks',
     databaseURL: 'https://react-native-firebase-testing.firebaseio.com',
-    storageBucket: 'udemy-delivery-mysql.appspot.com',
+    storageBucket: 'delivery--el-porvenir-steaks.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
