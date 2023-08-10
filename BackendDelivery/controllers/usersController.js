@@ -80,6 +80,32 @@ module.exports = {
         });
     },
 
+    findByCode(req, res) {
+        const code = req.params.code;
+
+        User.findByCode(code, async (err, data) => {
+            if (err) {
+                return res.status(501).json({
+                    success: false,
+                    message: 'Hubo un error con el codigo',
+                    error: err
+                });
+            }
+            
+            if(data == undefined){
+                return res.status(404).json({
+                    success: false,
+                    message: 'No se encontro el codigo',
+                });
+            }else {
+                if(code == data.code){
+                    return await res.status(201).json(data);
+                } 
+            }
+            
+        });
+    },
+
     register(req, res) {
 
         const user = req.body; // CAPTURO LOS DATOS QUE ME ENVIE EL CLIENTE
@@ -102,6 +128,8 @@ module.exports = {
         });
 
     },
+
+    
     async registerWithImage(req, res) {
 
         const user = JSON.parse(req.body.user); // CAPTURO LOS DATOS QUE ME ENVIE EL CLIENTE
