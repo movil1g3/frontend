@@ -22,6 +22,7 @@ import 'package:projet_delivery/src/pages/delivery/orders/detail/delivery_orders
 import 'package:projet_delivery/src/pages/delivery/orders/list/delivery_orders_list_page.dart';
 import 'package:projet_delivery/src/pages/delivery/orders/map/delivery_orders_map_page.dart';
 import 'package:projet_delivery/src/pages/login/login_page.dart';
+import 'package:projet_delivery/src/pages/register/codes/register_codes_page.dart';
 import 'package:projet_delivery/src/pages/register/register_page.dart';
 import 'package:projet_delivery/src/pages/restaurant/home/restaurant_home_page.dart';
 import 'package:projet_delivery/src/pages/restaurant/orders/detail/restaurant_orders_detail_page.dart';
@@ -77,6 +78,7 @@ class _MyAppState extends State<MyApp> {
       getPages: [
         GetPage(name: '/', page: () => LoginPage()),
         GetPage(name: '/register', page: () => RegisterPage()),
+        GetPage(name: '/register/codes', page: () => RegisterCodesPage()),
         GetPage(name: '/home', page: () => HomePage()),
         GetPage(name: '/roles', page: () => RolesPage()),
         GetPage(name: '/restaurant/home', page: () => RestaurantHomePage()),

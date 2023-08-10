@@ -150,4 +150,19 @@ class UsersProvider extends GetConnect {
     return responseApi;
   }
 
+  Future<Response> findByCode(String code) async {
+    Response response = await get(
+        '$url/findByCode/$code',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    ); // ESPERAR HASTA QUE EL SERVIDOR NOS RETORNE LA RESPUESTA
+
+    if (response.statusCode == 404) {
+
+    }
+    return response;
+  }
+
 }

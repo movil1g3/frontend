@@ -37,7 +37,7 @@ class RegisterController extends GetxController {
     if (isValidForm(email, name, lastname, phone, password, confirmPassword)) {
 
       ProgressDialog progressDialog = ProgressDialog(context: context);
-      progressDialog.show(max: 100, msg: "Registrando Datos...");
+      progressDialog.show(max: 100, msg: "REDIRECCIONANDO...");
 
       User user = User(
         email: email,
@@ -170,7 +170,7 @@ class RegisterController extends GetxController {
   }
 
   void goToHomePage() {
-    Get.offNamedUntil('/login', (route) => false);
+    Get.toNamed('/register/codes');
   }
 
 }
