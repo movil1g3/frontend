@@ -50,7 +50,7 @@ class ClientOrdersCreatePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                  'TOTAL: \$${controller.total.value}',
+                  'TOTAL: Lps.${controller.total.value}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17
@@ -126,7 +126,7 @@ class ClientOrdersCreatePage extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 10),
       child: Text(
-        '\$${ product.price! * product.quantity!}',
+        'Lps.${ product.price! * product.quantity!}',
         style: TextStyle(
           color: Colors.grey,
           fontWeight: FontWeight.bold

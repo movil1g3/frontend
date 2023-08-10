@@ -132,7 +132,7 @@ class ClientProductDetailPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () => controller.addToBag(product!, price, counter),
                 child: Text(
-                  'Agregar   \$${price.value}',
+                  'Agregar   Lps.${price.value}',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
@@ -159,7 +159,7 @@ class ClientProductDetailPage extends StatelessWidget {
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.only(top: 15, left: 30, right: 30),
       child: Text(
-        '\$${product?.price.toString() ?? ''}',
+        'Lps.${product?.price.toString() ?? ''}',
         style: TextStyle(
             fontSize: 15,
             color: Colors.black,

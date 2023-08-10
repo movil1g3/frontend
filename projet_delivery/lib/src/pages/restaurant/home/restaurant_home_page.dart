@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:projet_delivery/src/pages/client/products/list/client_products_list_controller.dart';
 import 'package:projet_delivery/src/pages/client/profile/info/client_profile_info_page.dart';
 import 'package:projet_delivery/src/pages/restaurant/categories/create/restaurant_categories_create_page.dart';
 import 'package:projet_delivery/src/pages/restaurant/products/create/restaurant_products_create_page.dart';
-import '../../delivery/orders/list/delivery_orders_list_page.dart';
-import '../../register/register_page.dart';
 import '../../restaurant/orders/list/restaurant_orders_list_page.dart';
 import 'package:projet_delivery/src/utils/custom_animated_bottom_bar.dart';
 
@@ -40,29 +37,29 @@ class RestaurantHomePage extends StatelessWidget {
       itemCornerRadius: 24,
       curve: Curves.easeIn,
       selectedIndex: controller.indexTab.value,
-      onItemSelected: (index) => controller  .changeTab(index),
+      onItemSelected: (index) => controller.changeTab(index),
       items: [
         BottomNavyBarItem(
-            icon: Icon(Icons.list),
-            title: Text('Pedidos'),
+            icon: const Icon(Icons.list),
+            title: const Text('Pedidos'),
+            activeColor: Colors.white,
+            inactiveColor: Colors.black
+        ),
+        BottomNavyBarItem (
+            icon: const Icon(Icons.category),
+            title: const Text('Categoria'),
             activeColor: Colors.white,
             inactiveColor: Colors.black
         ),
         BottomNavyBarItem(
-            icon: Icon(Icons.category),
-            title: Text('Categoria'),
+            icon: const Icon(Icons.restaurant),
+            title: const Text('Producto'),
             activeColor: Colors.white,
             inactiveColor: Colors.black
         ),
         BottomNavyBarItem(
-            icon: Icon(Icons.restaurant),
-            title: Text('Producto'),
-            activeColor: Colors.white,
-            inactiveColor: Colors.black
-        ),
-        BottomNavyBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Perfil'),
+            icon: const Icon(Icons.person),
+            title: const Text('Perfil'),
             activeColor: Colors.white,
             inactiveColor: Colors.black
         ),

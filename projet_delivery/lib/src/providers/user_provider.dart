@@ -95,6 +95,7 @@ class UsersProvider extends GetConnect {
 
   Future<Stream> createWithImage(User user, File image) async {
     Uri uri = Uri.http(Environment.API_URL_OLD, '/api/users/createWithImage');
+    print('URL ---> $uri');
     final request = http.MultipartRequest('POST', uri);
     request.files.add(http.MultipartFile(
         'image',
